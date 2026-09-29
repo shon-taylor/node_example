@@ -38,13 +38,8 @@ int main()
 
     // Traverse the list and print values
     Node *temp = head;
-    while (temp != nullptr)
-    {
-        std::cout << temp->data << std::endl;
-        temp = temp->next;
-    }
 
-   // Traverse the list again and delete nodes
+   /* Traverse the list again and delete nodes
     temp = head;
     while (temp != nullptr)
     {
@@ -52,6 +47,33 @@ int main()
         temp = temp->next;
         delete deleteMe;
     }
+        */
+
+    //Insert at front
+    Node* newNode = new Node(70);
+
+        newNode->next = head;
+        head = newNode;
+
+    
+    //Insert at the back
+    //temp = head;
+    Node* tail;
+    while(temp->next != nullptr) { //Go through list until temp->next hits a nullptr (AKA the Tail)
+        temp = temp->next;
+    }
+    Node* lastNode = new Node(100); //Create Node
+    temp->next = lastNode;          //Set Node to replace temp node
+    tail = lastNode;
+
+
+    temp = head;
+    while (temp != nullptr)
+    {
+        std::cout << temp->data << std::endl;
+        temp = temp->next;
+    }
+
 
     return 0;
 }
